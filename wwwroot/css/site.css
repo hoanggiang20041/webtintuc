@@ -1,0 +1,160 @@
+﻿body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Màu nền cho body */
+    color: #333; /* Màu chữ */
+}
+
+header {
+    background-color: #c00; /* Màu nền đỏ cho header */
+    color: #fff; /* Màu chữ trắng */
+    text-align: center;
+    padding: 20px 0; /* Padding cho header */
+}
+
+.container {
+    max-width: 1200px; /* Giới hạn chiều rộng tối đa */
+    margin: auto; /* Căn giữa container */
+    padding: 20px; /* Padding bên trong */
+    display: flex; /* Sử dụng flexbox để tạo bố cục */
+    flex-wrap: wrap; /* Cho phép các phần tử xuống dòng khi không đủ chỗ */
+}
+
+/* Cột bên trái */
+.left-column {
+    flex: 0 0 30%; /* Cột bên trái chiếm 30% chiều rộng */
+    padding-right: 20px; /* Khoảng cách bên phải cho cột chính */
+}
+
+/* Cột chính */
+.main-column {
+    flex: 0 0 70%; /* Cột chính chiếm 70% chiều rộng */
+}
+
+/* Tiêu đề tag */
+.tag-title {
+    font-size: 1.75rem; /* Kích thước chữ cho tag title */
+    color: #c00; /* Màu chữ cho tag title */
+    margin-bottom: 20px; /* Khoảng cách phía dưới tiêu đề */
+}
+
+/* Bài viết nổi bật */
+.featured-article {
+    margin-bottom: 40px; /* Khoảng cách phía dưới */
+    padding: 20px; /* Padding cho bài viết nổi bật */
+    background: #fff; /* Nền trắng cho bài viết */
+    border-radius: 5px; /* Bo góc bài viết */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+}
+
+/* Hình ảnh bài viết nổi bật */
+.featured-image {
+    max-width: 100%; /* Kích thước tối đa cho hình ảnh */
+    border-radius: 5px; /* Bo góc hình ảnh */
+}
+
+/* Bài viết nhỏ và bài viết chính */
+.small-article, .article {
+    margin-bottom: 20px; /* Khoảng cách phía dưới */
+    padding: 15px; /* Padding cho bài viết */
+    border: 1px solid #ddd; /* Đường viền cho bài viết */
+    border-radius: 5px; /* Bo góc bài viết */
+    background: #fafafa; /* Nền cho bài viết */
+}
+
+/* Hình ảnh bài viết nhỏ */
+.small-article-image, .small-image {
+    width: 100%; /* Kích thước hình ảnh của bài viết nhỏ */
+    height: auto; /* Tự động điều chỉnh chiều cao */
+    max-width: 150px; /* Đặt chiều rộng tối đa cho hình ảnh nhỏ */
+}
+
+/* Tiêu đề bài viết */
+.article-title a {
+    text-decoration: none; /* Bỏ gạch chân */
+    color: #c00; /* Màu chữ cho tiêu đề bài viết */
+}
+
+    .article-title a:hover {
+        text-decoration: underline; /* Gạch chân khi di chuột */
+    }
+
+/* Nội dung bài viết */
+.article-content {
+    font-size: 0.9rem; /* Kích thước chữ cho nội dung bài viết */
+    line-height: 1.4; /* Khoảng cách dòng */
+}
+
+/* Footer */
+footer {
+    background-color: #f4f4f4; /* Màu nền cho footer */
+    padding: 20px 0; /* Padding cho footer */
+    text-align: center; /* Canh giữa nội dung */
+    color: #333; /* Màu chữ */
+    border-top: 1px solid #ddd; /* Đường viền phía trên */
+    margin-top: 20px; /* Khoảng cách phía trên footer */
+}
+
+.footer-container {
+    max-width: 1200px; /* Giới hạn chiều rộng tối đa */
+    margin: auto; /* Căn giữa footer */
+    padding: 20px; /* Padding cho footer container */
+    display: flex; /* Sử dụng flexbox để tạo bố cục */
+    justify-content: space-between; /* Khoảng cách giữa các cột */
+    background: #fff; /* Nền trắng cho footer container */
+    border-radius: 5px; /* Bo tròn các góc */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+}
+
+.footer-info, .footer-ad {
+    width: 48%; /* Chiều rộng của mỗi cột trong footer */
+}
+
+.footer-bottom {
+    margin-top: 20px; /* Khoảng cách phía trên */
+    font-size: 0.9rem; /* Kích thước chữ nhỏ hơn */
+}
+
+    .footer-bottom a {
+        color: #c00; /* Màu chữ cho liên kết */
+        text-decoration: none; /* Bỏ gạch chân */
+    }
+
+        .footer-bottom a:hover {
+            text-decoration: underline; /* Gạch chân khi di chuột */
+        }
+
+/* Điều hướng */
+nav a {
+    color: #fff; /* Màu chữ trắng cho các liên kết trong nav */
+    text-decoration: none; /* Bỏ gạch chân */
+    margin: 0 15px; /* Khoảng cách giữa các liên kết */
+}
+
+    nav a:hover {
+        text-decoration: underline; /* Gạch chân khi di chuột qua */
+    }
+
+/* Media Queries cho thiết bị di động */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Đặt các cột xuống hàng trên thiết bị di động */
+    }
+
+    .left-column, .main-column {
+        flex: 100%; /* Mỗi cột chiếm toàn bộ chiều rộng */
+        padding-right: 0; /* Bỏ khoảng cách bên phải */
+        padding-bottom: 20px; /* Thêm khoảng cách phía dưới */
+    }
+
+    .footer-container {
+        flex-direction: column; /* Cột footer cũng xuống hàng trên thiết bị di động */
+        align-items: center; /* Canh giữa nội dung trong footer */
+    }
+
+    .footer-info, .footer-ad {
+        width: 100%; /* Mỗi cột chiếm toàn bộ chiều rộng */
+        margin-bottom: 10px; /* Khoảng cách giữa các cột */
+    }
+}
