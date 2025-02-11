@@ -1,0 +1,83 @@
+﻿@model IEnumerable<webtintuc.Models.Article>
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/site.css">
+    <title>Trang Báo Tin Tức Hoàng Giang Media</title>
+</head>
+<body>
+    <header>
+        <h1>TRANG BÁO TIN TỨC HOÀNG GIANG MEDIA</h1>
+    </header>
+
+    <div class="container">
+        <div class="left-column">
+            <h3>Bài Viết Liên Quan</h3>
+            @foreach (var article in Model.Take(3))
+            {
+                <div class="small-article">
+                    <h4 class="article-title">
+                        <a href="@Url.Action("Details", "Home", new { id = article.Id })">@article.Title</a>
+                    </h4>
+                    <img src="@article.ImageUrl" alt="@article.Title" class="small-article-image">
+                    <p class="article-content">@article.Content</p>
+                </div>
+            }
+        </div>
+
+        <div class="main-column">
+            <h2 class="tag-title">I TAG: HOANG GIANG MEDIA</h2>
+
+            <!-- Bài viết nổi bật -->
+            <div class="featured-article">
+                @if (Model.Any())
+                {
+                    var firstArticle = Model.First();
+                    <h2 class="article-title">@firstArticle.Title</h2>
+                    <img src="@firstArticle.ImageUrl" alt="@firstArticle.Title" class="featured-image">
+                    <p class="article-content">@firstArticle.Content</p>
+                    <a href="@Url.Action("Details", "Home", new { id = firstArticle.Id })" class="btn btn-primary">Đọc thêm</a>
+                }
+            </div>
+
+            <!-- Danh sách bài viết nhỏ -->
+            <h3>Các bài viết khác</h3>
+            <div class="small-articles">
+                @foreach (var article in Model.Skip(1))
+                {
+                    <div class="article">
+                        <h3 class="article-title">
+                            <a href="@Url.Action("Details", "Home", new { id = article.Id })">@article.Title</a>
+                        </h3>
+                        <img src="@article.ImageUrl" alt="@article.Title" class="small-image">
+                        <p class="article-content">@article.Content</p>
+                        <p class="article-author">Được viết bởi: @article.Author</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <p>© 2025 - Trang báo tin tức HOANGGIANG MEDIA</p>
+                <p>Địa chỉ: S305, VINHOME GRAND PARK TP.THỦ ĐỨC</p>
+                <p>Điện thoại: 0522336052</p>
+                <p>Email: contact@HOANGGIANGMEDIA.vn</p>
+            </div>
+            <div class="footer-ad">
+                <h4>BÁO GIÁ QUẢNG CÁO</h4>
+                <p>Điện thoại: 0522336052</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Bản quyền thuộc về HOANGGIANG MEDIA</p>
+            <p>© 2025 - HOANGGIANGMEDIA - <a href="@Url.Action("Privacy", "Home")">Chính Sách Bảo Mật</a></p>
+        </div>
+    </footer>
+</body>
+</html>

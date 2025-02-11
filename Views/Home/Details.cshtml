@@ -1,0 +1,62 @@
+﻿@model webtintuc.Models.Article
+@{
+    var allArticles = ViewBag.AllArticles as List<webtintuc.Models.Article> ?? new List<webtintuc.Models.Article>();
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/css/details.css">
+    <title>Chi Tiết Bài Viết - @Model.Title</title>
+</head>
+<body class="details-page">
+
+    <div class="details-container">
+        <div class="main-content">
+            <h2>@Model.Title</h2>
+            <img src="@Model.ImageUrl" alt="@Model.Title" class="featured-image">
+            <p class="article-content">@Model.Content</p>
+            <p><strong>Tác giả:</strong> @Model.Author</p>
+            <p><strong>Thể loại:</strong> @Model.Category</p>
+            <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">Trở lại danh sách bài viết</a>
+        </div>
+
+        <div class="sidebar">
+            <h3>Bài Viết Khác</h3>
+            <div class="related-articles">
+                @foreach (var article in allArticles)
+                {
+                    <div class="small-article">
+                        <h4><a href="@Url.Action("Details", "Home", new { id = article.Id })">@article.Title</a></h4>
+                        <p>@article.Content.Substring(0, 100) + "..."</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-info">
+                    <p>© 2025 - Trang báo tin tức HOANGGIANG MEDIA</p>
+                    <p>Địa chỉ: S305, VINHOME GRAND PARK TP.THỦ ĐỨC</p>
+                    <p>Điện thoại: 0522336052</p>
+                    <p>Email: contact@HOANGGIANGMEDIA.vn</p>
+                </div>
+                <div class="footer-ad">
+                    <h4>BÁO GIÁ QUẢNG CÁO</h4>
+                    <p>Điện thoại: 0522336052</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Bản quyền thuộc về HOANGGIANG MEDIA</p>
+                <p>© 2025 - HOANGGIANGMEDIA - <a href="@Url.Action("Privacy", "Home")">Chính Sách Bảo Mật</a></p>
+            </div>
+        </footer>
+</body>
+</html>
